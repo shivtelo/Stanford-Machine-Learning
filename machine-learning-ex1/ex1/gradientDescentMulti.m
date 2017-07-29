@@ -16,22 +16,26 @@ for iter = 1:num_iters
     % Hint: While debugging, it can be useful to print out the values
     %       of the cost function (computeCostMulti) and gradient here.
     %
-
-
-
-
-
-
-
-
-
-
+     % htheta = X * theta;
+    %theta_tmp = zeros(3, 1);
+    %for row = 1:size(theta, 1)
+     %   theta_tmp(row) = theta(row) - alpha / m * sum((htheta - y) .* X(:,row));
+    %end
+    %theta = theta_tmp;
+    
+    A=(X*theta)-y;
+       tmpr= zeros(3,1);
+       for row =1:size(theta,1)
+        tmpr(row)=theta(row)-alpha/m *sum(A.*X(:,row));
+        
+      end
+      theta=tmpr;
 
     % ============================================================
 
     % Save the cost J in every iteration    
     J_history(iter) = computeCostMulti(X, y, theta);
-
+    
 end
 
 end
